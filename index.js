@@ -10,7 +10,7 @@ const app  = express();
 app.use(express.json());
 
 var dd = {
-    origin : true,
+    origin : "*",
     credentials : true
   };
 
