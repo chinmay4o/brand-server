@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import {customerRouter} from "./router/customer.js";
-import cookieParser from "cookie-parser";
+
 
 const app  = express();
 

@@ -81,16 +81,10 @@ router.post("/login", async (req, res) => {
     if (user) {
       const verifyUser = await bcrypt.compare(password, user.password);
       if (verifyUser) {
-        const token = await jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
+        const token = await jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
         user.tokens = user.tokens.concat({ token: token });
         await user.save();
         console.log(token);
-
-        res.cookie("jwttoken", token, {
-          sameSite: "none",
-          httpOnly: true,
-          secure: true,
-        });
 
         res.json({user , tokenAll : token});
       } else {
