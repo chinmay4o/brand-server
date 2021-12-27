@@ -7,10 +7,14 @@ import {customerRouter} from "./router/customer.js";
 
 const app  = express();
 
-app.use(express.json());
+app.use(
+  express.json({
+    extended: false,
+  })
+);
 
 var dd = {
-    origin : "*",
+    origin : "https://onebrand4o.netlify.app",
     credentials : true
   };
 
