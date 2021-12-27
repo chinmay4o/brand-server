@@ -14,7 +14,7 @@ app.use(
 );
 
 var dd = {
-    origin : "https://onebrand4o.netlify.app",
+    origin : "*",
     credentials : true
   };
 
