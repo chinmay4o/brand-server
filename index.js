@@ -22,9 +22,9 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://onebrand4o.netlify.app');
     res.header('Access-Control-Allow-Headers', 'Origins, X-Requested-With, Content-Type, Accept');
-    res.header("Access-Control-Allow-Method", "*");
+    res.header("Access-Control-Allow-Methods", "*");
     next();
 })
 
