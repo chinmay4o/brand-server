@@ -9,7 +9,7 @@ dotenv.config({ path : "./config.env"});
 const app  = express();
 
 app.use(cors({
-  origin: "https://bhima-server.herokuapp.com",
+  origin: "https://onebrand4o.netlify.app/",
   credentials: true
   }));
 
