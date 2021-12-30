@@ -98,30 +98,5 @@ router.post("/login", async (req, res) => {
 });
 
 
-//register
-router.post("/register", async (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    res.status(422).json({ message: "fill the details first " });
-  }
-
-  const user = await Users.findOne({ email: email });
-
-  if (user) {
-    res.status(422).json({ message: "user already exists" });
-  }
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new Users({ email, password: hashedPassword });
-    await newUser.save();
-
-    res.json(newUser);
-  } catch (err) {
-    console.log(err);
-    res.status(422).send(err);
-  }
-});
-
 
 export const customerRouter = router;
