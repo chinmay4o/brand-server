@@ -9,7 +9,7 @@ dotenv.config({ path : "./config.env"});
 const app  = express();
 
 app.use(cors({
-  origin: true,
+  origin: "https://bhima-server.herokuapp.com",
   credentials: true
   }));
 
