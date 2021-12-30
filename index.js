@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://onebrand4o.netlify.app/",
+    origin: "*",
     credentials: true,
   })
 );
