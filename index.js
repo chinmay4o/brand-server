@@ -4,9 +4,15 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import {customerRouter} from "./router/customer.js";
-
+dotenv.config({ path : "./config.env"});
 
 const app  = express();
+
+app.use(cors({
+  origin: true,
+  credentials: true
+  }));
+
 
 app.use(
   express.json({
@@ -14,25 +20,6 @@ app.use(
   })
 );
 
-
-app.use( function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origins, X-Requested-With, Content-Type, Accept');
-    res.header("Access-Control-Allow-Methods", "*");
-    next();
-})
-
-
-app.use(cors({
-  origin: true
-  }));
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-
-dotenv.config({ path : "./config.env"});
 
 //mongodb connection
 const url = process.env.DATABASE;
